@@ -19,6 +19,23 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    const prevStateContacts = prevState.contacts;
+    const updetedStateContacts = this.state.contacts;
+
+    if (updetedStateContacts !== prevStateContacts) {
+      localStorage.setItem('contacts', JSON.stringify(updetedStateContacts));
+    }
+  }
+
   checkContactHandler = ({ name, number }) => {
     if (!name) {
       return alert('Please enter name!');

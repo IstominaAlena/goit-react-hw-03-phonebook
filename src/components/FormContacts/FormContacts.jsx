@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Input from '../../shared/components/Input';
 import Button from '../../shared/components/Button';
 
-import styles from './ForContacts.module.css';
+import styles from './FormContacts.module.css';
 
 class FormContacts extends Component {
   state = {
